@@ -1,176 +1,176 @@
 :root {
-    --background-color: white;
-    --input-color: #f9f871;
-    --text-color: #4E8397;
-    --primary-color: #52b788;
-    --link-color: #845EC2;
-    --visited-link-color: #D65D81;
-    --active-link-color: #006d77;
-    --button-color: #FF6F91;
-    --header-color: #006d77;
-    --main-font-size: 1.5rem;
-    --padding: 3rem;
-    --margin: 2rem;
+  --color-red: #cc0000;
+  --color-yellow: #ffde05;
+  --color-blue: #3b4cca;
+  --color-darkgrey: rgb(51, 49, 49);
+  --color-black: #000;
+  --color-white: rgb(255, 255, 255);
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
+* {
+    box-sizing: border-box;
+  }
+  
+  .header {
+    height: 120px;
+    background-color: #cc0000;
+    text-align: center;
+  }
+  
+  #pokeball {
+    float: left ;
+    height: 100px;
+    align-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .logo {
+    flex-direction: column;
+    align-content: center;
+    font-family: 'Pokemon Solid', sans-serif;
+  }
+
+  .logo {
+    margin-left: 30px;
+    color: #ffde00;
+    font-size: 50px;
+    padding-top: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  /* .pokedex-style {
+    display: flex;
+    color: #ffde00;
+    background-color: #3b4cca;
+    padding: 12px 16px;
+    margin-top: 15px;
+    max-width: 250px;
+    font-weight: bold;
+    border-radius: 50px;
+  } */
+
+  .button-class {
+    background-color: #3b4cca;
+    border: none;
+    border-radius: 10px;
+    color: #ffde00;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-variant: small-caps;
+    width: 200px;
+  }
+
+  li {
+    list-style-type: none;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  html, body {
+  font-family: Arial, sans-serif;
 }
 
-html {
-  font-size: 10px;
+@media all and (max-width: 500px) {
+  .button-class {
+    width: 75vw;
+  }
+}
+
+.modal-content {
+  background-color: var(--color-white);
+}
+
+h5.modal-title {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+p {
+  color: var(--color-black);
+  text-align: left;
+  font-size: 1.25rem;
 }
 
 body {
-  font-family: 'sans-serif';
-  font-weight: 500;
-  font-size: var(--main-font-size);
-  line-height: 300%;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  padding: var(--padding);
-  margin: var(--margin);
-
+  font-weight: 400;
+  color: var(--color-red);
+  font-size: 16px;
+  background-color: var(--color-black);
+  transition: width 2s;
+  font-variant: small-caps;
 }
 
-h1 {
-  font-size: 5rem;
-  font-weight: 700;
-  color: var(--header-color);
-  text-align: center;
-}
 
-h2, .modal h2 {
-  font-size: 4rem;
-  font-weight: 700;
-  color: var(--text-color);
-  text-align: center;
-}
 
-P, .modal p {
-font-size: var(--main-font-size);
-font-weight: 300;
-color: var(--primary-color);
-overflow-wrap: break-word;
-}
-
-#loading {
-  width: 2rem;
-  height: 2rem;
-  border: 5px solid white;
-  border-top: 6px solid red;
-  border-radius: 100%;
-  margin: auto;
-  visibility: hidden;
-  animation: spin 1s infinite linear;
-}
-
-#loading.show {
-  visibility: visible;
-}
-
-.pokemon-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.pokeball {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background: #fff;
-  border: 10px solid #000;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 10px;
-}
-
-.name {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate (-50%, -50%);
-  z-index: 1;
-  padding: 4px 0;
+.btn {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  color: var(--color-blue);
+  text-transform: capitalize;
+  background-color: var(--color-yellow);
   border: none;
+  border-radius: 5px;
+  list-style-type: none;
   width: 100%;
-  background: #000;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-
-#modal-container {
-  position: fixed;
   padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* to show it above other content */
-  z-index: 999;
-  /* to allow scrolling if the screen is not high enough */
-  overflow: auto;
-  /* this is used to center the modal */
-  display: none;
-  text-align: center;
-}
-
-#modal-container.is-visible {
-  /* add CSS for modal container */
-  display: block;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #ECF0F1;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
-  text-align: left;
-  border-radius: 15px;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #FF9671;
-  text-decoration: underline;
   cursor: pointer;
-  font-weight: 300;
-  font-size: 14px;
+  transition: transform 250ms;
+  will-change: transform;
 }
 
-.modal img {
-  position: relative;
+.btn:hover , .btn:active {
+  color: var(--color-blue);
+  background-color: var(--color-yellow);
+  transition: transform 125ms;
+  transform: translateY(-10px);
+}
+
+button.btn.btn-secondary {
+  background-color: var(--color-yellow);
+  box-shadow: none;
+}
+
+button.btn.btn-secondary:hover,  button.btn.btn-secondary:active{
+  background-color: var(--color-yellow);
+  color: var(--color-blue);
+}
+
+img.card-img-top {
   display: block;
-  margin: auto;
-  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-@media screen and (min-width: 900px) {
-  html {
-    font-size: 10px;
-  }
+h4.card-title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
 }
 
-@media screen and (min-width: 1200px) {
-  html {
-    font-size: 12px;
-  }
+.card {
+  margin: 15px;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div.row {
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+h2 {
+  font-style: italic;
+}
